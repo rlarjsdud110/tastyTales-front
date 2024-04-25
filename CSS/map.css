@@ -1,0 +1,47 @@
+/* kakao map*/
+body{
+    height: 100vh;
+}
+
+#map{
+    /* flex-grow: 1; */
+    width: 100%;
+    height: 60%;
+}
+
+nav{
+    height: 90px;
+}
+
+main{
+    height: calc(100% - 90px);
+    display: flex;
+    flex-direction: column;
+}
+
+/*infoWindow*/
+.infowindow{
+    width: 20rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+}
+.infowindow a{
+    font-size: 1rem;
+}
+.infowindow-img-container{
+    width: 100%;
+    height: 10rem;
+    overflow: hidden;
+}
+.infowindow-img{
+    width: 100%;
+    height: 100%;
+}
+
+.infowindow-title{
+    font-size: 2rem;
+}
+.infowindow-address{
+    font-size: 1.3rem;
+}

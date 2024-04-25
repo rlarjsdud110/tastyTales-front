@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&family=Noto+Sans+KR:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    background-color: #29C1BC;
+}
+
+main {
+    padding-top: 2rem;
+}
+
+.inner {
+    padding: 0 2rem;
+}
+
+.nav-container {
+    padding: 1rem 0;
+    font-family: "Hahmlet", serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-title {
+    font-size: 2.5rem;
+}
+
+.nav-contact {
+    border: 0;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    background: none;
+}
+
+.categort-title {
+    font-size: 2rem;
+    font-family: "Hahmlet", serif;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.categort-item {
+    width: 24%;
+    height: 5rem;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font-family: "Hahmlet", serif;
+    font-size: 1.5rem;
+}
+
+.categort-item:hover {
+    color: #29C1BC;
+}
+
+.nav-contact:hover {
+    color: white;
+}
+
+/* add-restaurant.css */
+#add-restaurant {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 1000;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 80%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-cancel,
+.btn-submit {
+    background-color: #29C1BC;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #218693;
+}
+
+
+@media all and (min-width: 1024px) {
+    .inner {
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+}
+
+/* 회원용/비회원용 헤더 설정 */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-button {
+    font-family: inherit;
+    font-size: 2.5rem;
+    border: none;
+    background: none;
+}
+
+/* 로그인 버튼 기본값: 숨김처리 */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+}
+
+.dropdown-content button {
+    display: block;
+    font-size: 2rem;
+    font-family: inherit;
+    width: 100%;
+    border: none;
+}
+
+.dropdown-content button:hover {
+    color: white;
+    background-color: #606060;
+}
+
+/* 호버시 로그아웃 버튼 보이도록 설정 */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+/*  */
+
+.sign-container {
+    font-size: 2.5rem;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+}

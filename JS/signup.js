@@ -34,22 +34,24 @@ async function signup(event) {
     }
 
     // 3. 회원가입 API 요청
-    const signUpReturn = await axios({
-        method: "post", // http method
-        url: `http://localhost:8080/user/save`,
-        headers: {}, // packet header
-        data: { userId: userId, password: password, nickname: nickname }, // packet body
-    });
+    try {
+        const signUpReturn = await axios.post(`http://localhost:8080/user/save`, {
+            userId: userId,
+            password: password,
+            nickname: nickname
+        });
 
-    // 4. 요청이 성공적이지 않다면, alert message
-    const isValidSignUp = signUpReturn.data.code == 200;
-
-    if (!isValidSignUp) {
+        // 4. 요청이 성공적이지 않다면, alert message
+        if (signUpReturn.status === 201) {
+            if (signUpReturn.data) {
+                alert(signUpReturn.data);
+            }
+            return location.replace("./index.html");
+        } else {
+            return alert("요청에 문제가 생겼습니다.");
+        }
+    } catch (error) {
+        console.error(error);
         return alert("요청에 문제가 생겼습니다.");
     }
-
-    // 5. 요청이 성공하면, jwt를 localstorage에 저장하고 main page 이동
-    alert(signUpReturn.data.message);
-
-    return location.replace("./index.html");
 }

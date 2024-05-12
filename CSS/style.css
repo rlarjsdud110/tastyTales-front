@@ -19,6 +19,11 @@ main {
     padding: 0 2rem;
 }
 
+.categort-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .nav-container {
     padding: 1rem 0;
     font-family: "Hahmlet", serif;
@@ -32,18 +37,23 @@ main {
 }
 
 .nav-contact {
-    border: 0;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-family: "Hahmlet", serif;
+    display: inline-block;
+    border: none;
     cursor: pointer;
-    font-family: "Poppins", sans-serif;
     background: none;
+
+}
+
+.nav-contact:hover {
+    color: #29C1BC;
 }
 
 .categort-title {
     font-size: 2rem;
     font-family: "Hahmlet", serif;
     display: inline-block;
-    font-weight: 500;
 }
 
 .categort-item {
@@ -60,10 +70,6 @@ main {
     color: #29C1BC;
 }
 
-.nav-contact:hover {
-    color: white;
-}
-
 /* add-restaurant.css */
 #add-restaurant {
     position: fixed;
@@ -76,7 +82,6 @@ main {
     border-radius: 10px;
     max-width: 600px;
     width: 80%;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -106,10 +111,11 @@ main {
     font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
+    border: none;
 }
 
 .btn-submit:hover {
-    background-color: #218693;
+    background-color: #29C1BC;
 }
 
 
@@ -120,17 +126,15 @@ main {
     }
 }
 
-/* 회원용/비회원용 헤더 설정 */
+.dropdown-button {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+}
+
 .dropdown {
     position: relative;
 }
 
-.dropdown-button {
-    font-family: inherit;
-    font-size: 2.5rem;
-    border: none;
-    background: none;
-}
 
 /* 로그인 버튼 기본값: 숨김처리 */
 .dropdown-content {
@@ -141,32 +145,13 @@ main {
 
 .dropdown-content button {
     display: block;
-    font-size: 2rem;
-    font-family: inherit;
+    font-size: 1.3rem;
+    font-family: "Poppins", sans-serif;
     width: 100%;
-    border: none;
+    background-color: white;
+    cursor: pointer;
 }
-
-.dropdown-content button:hover {
-    color: white;
-    background-color: #606060;
-}
-
 /* 호버시 로그아웃 버튼 보이도록 설정 */
 .dropdown:hover .dropdown-content {
     display: block;
-}
-
-.hidden {
-    display: none;
-}
-
-/*  */
-
-.sign-container {
-    font-size: 2.5rem;
-    border: 0;
-    background: none;
-    cursor: pointer;
-    font-family: inherit;
 }

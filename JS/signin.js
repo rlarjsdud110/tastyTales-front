@@ -11,7 +11,7 @@ async function signIn(event) {
 	if (!userId || !password) {
 		return alert("회원 정보를 입력해주세요.");
 	}
-    try{
+
 	// 3. 로그인 API 요청
 	const signInReturn = await axios({
 		method: "post", // http method  
@@ -19,23 +19,17 @@ async function signIn(event) {
 		headers: {}, // packet header
 		data: { userId: userId, password: password }, // packet body
 	});
-    return location.replace("./index.html");
-    } catch(error){
-        console.log(error);
-        return alert("아이디 혹은 비밀번호가 틀렸습니다.");
-    }
 
-	// // 4. 요청이 성공적이지 않다면, alert message
-	// const isValidSignIn = signInReturn.data.code == 200;
 
-	// if (!isValidSignIn) {
-	// 	return alert("요청에 문제가 생겼습니다.");
-	// }
+	const signInStatus = signInReturn.status === 200;
+	if(!signInStatus){
+		return alert("아이디 혹은 비밀번호가 틀렸습니다.");
+	}
 
-	// // 5. 요청이 성공하면, jwt를 localstorage에 저장하고 main page 이동
-	// const jwt = signInReturn.data.result.jwt;
-	// localStorage.setItem("x-access-token", jwt);
-	// alert(signInReturn.data.message);
+	const jwt = signInReturn.data;
+	localStorage.setItem("X-AUTH-TOKEN", jwt);
+	alert("로그인이 완료되었습니다.");
+	return location.replace("./index.html");
 
-	
+
 }

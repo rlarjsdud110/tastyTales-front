@@ -1,3 +1,7 @@
+function getJwtToken() {
+    return localStorage.getItem("X-AUTH-TOKEN");
+}
+
 var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 var options = { //지도를 생성할 때 필요한 기본 옵션
 	center: new kakao.maps.LatLng(37.484649, 126.812369), //지도의 중심좌표.
@@ -21,24 +25,21 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
 //비동기 요청 데이터
 async function getDataSet(category) {
+	const jwt = getJwtToken();
 	let qs = category;
 	let dataSet;
 	if (!qs) {
 		dataSet = await axios({
 			method: "GET",
 			url: `http://localhost:8080/food`,
-			headers: {
-				"Content-Type": "application/json"
-			}
+			headers: { "X-AUTH-TOKEN": jwt }
 		});
 		return dataSet.data;
 	} else {
 		dataSet = await axios({
 			method: "GET",
 			url: `http://localhost:8080/food/category?category=${qs}`,
-			headers: {
-				"Content-Type": "application/json"
-			}
+			headers: { "X-AUTH-TOKEN": jwt }
 		});
 		return dataSet.data
 	}
@@ -201,6 +202,7 @@ window.onclick = function (event) {
 }
 
 async function addRestaurant() {
+	const jwt = getJwtToken();
 	const title = document.getElementById('title').value;
 	const address = document.getElementById('address').value;
 	const image = document.getElementById('image').value;
@@ -221,12 +223,17 @@ async function addRestaurant() {
 	};
 
 	try {
-		const response = await axios.post('http://localhost:8080/food', data);
+		const response = await axios.post('http://localhost:8080/food', data, {
+			headers: { "X-AUTH-TOKEN": jwt }	
+		});
 		console.log('음식점 추가 성공: ', response);
+		alert("음식점 정보를 추가했습니다!");
 		// 모달 닫기
 		closeModal();
 	} catch (error) {
 		console.error('음식점 추가 실패: ', error);
+		alert("다시 시도해주세요");
+		closeModal();
 	}
 	console.log(categoryValue);
 }
